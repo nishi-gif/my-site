@@ -11,7 +11,7 @@ export default function NewsDetail() {
     <div>
       <h2 className="text-3xl font-bold mb-2">{news.title}</h2>
       <p className="text-gray-500 mb-4">{news.date}</p>
-      <p>（ここに詳細本文が入ります）</p>
+      <p>（ここにニュース本文が入ります）</p>
     </div>
   );
 }

@@ -6,7 +6,7 @@ export default function Layout({ children }) {
     <div className="min-h-screen flex flex-col">
       <Header />
 
-      <main className="flex-1 p-6 max-w-3xl mx-auto w-full">
+      <main className="flex-1 p-8 max-w-3xl mx-auto w-full">
         {children}
       </main>
 

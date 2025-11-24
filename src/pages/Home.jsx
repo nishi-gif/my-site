@@ -1,3 +1,8 @@
 export default function Home() {
-  return <h1 className="text-4xl text-blue-600">Tailwind OK</h1>;
+  return (
+    <div>
+      <h2 className="text-2xl font-bold mb-4">Home</h2>
+      <p>React テンプレートの西村サンプルサイトです！</p>
+    </div>
+  );
 }

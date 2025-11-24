@@ -8,7 +8,7 @@ export default function NewsList() {
 
       <ul className="space-y-3">
         {newsData.map((item) => (
-          <li key={item.id} className="p-4 border rounded shadow-sm">
+          <li key={item.id} className="p-4 border rounded shadow hover:shadow-lg transition">
             <Link
               to={`/news/${item.id}`}
               className="text-blue-600 font-semibold hover:underline"
