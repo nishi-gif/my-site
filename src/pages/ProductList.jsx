@@ -1,0 +1,24 @@
+import { Link } from "react-router-dom";
+import { products } from "../data/products";
+
+export default function ProductList() {
+  return (
+    <div>
+      <h2 className="text-2xl font-bold mb-4">Products</h2>
+
+      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {products.map((p) => (
+          <li key={p.id} className="p-4 border rounded shadow-sm">
+            <Link
+              to={`/products/${p.id}`}
+              className="text-blue-600 font-semibold hover:underline"
+            >
+              {p.name}
+            </Link>
+            <p className="text-sm mt-1">¥{p.price}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
