@@ -1,70 +1,130 @@
-# Getting Started with Create React App
+────────────────────────────────────────
+React Website Template
+(React + React Router + Tailwind CSS)
+────────────────────────────────────────
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+【概要】
+本プロジェクトは、React / React Router / Tailwind CSS を用いて構築した
+汎用 Web サイトテンプレートです。
+企業サイト・プロダクトサイト・ポートフォリオなど幅広い用途を想定しています。
 
-## Available Scripts
+また、IRサイト用途を想定し、
+データ差し替えのみでページ内容を変更できる構成としており、
+将来的には Next.js 版テンプレートへの発展を前提としています。
 
-In the project directory, you can run:
+────────────────────────────────────────
+【特徴 / Features】
 
-### `npm start`
+・React（Create React App）ベース
+・React Router による SPA 構成
+・Tailwind CSS によるレスポンシブ対応
+・Header / Footer / Navigation の共通レイアウト
+・News / Products の仮データを map() により動的生成
+・GitHub → Vercel 自動デプロイ対応
+・社内テンプレートとして再利用可能
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+────────────────────────────────────────
+【ページ構成 / Pages】
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+/ Home
+/about About
+/contact Contact
+/news ニュース一覧
+/news/:id ニュース詳細
+/products 商品一覧（グリッド表示）
+/products/:id 商品詳細
 
-### `npm test`
+────────────────────────────────────────
+【ディレクトリ構成】
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+src/
+components/
+Header.jsx
+Footer.jsx
+Navigation.jsx
+Layout.jsx
 
-### `npm run build`
+pages/
+Home.jsx
+About.jsx
+Contact.jsx
+NewsList.jsx
+NewsDetail.jsx
+ProductList.jsx
+ProductDetail.jsx
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+data/
+news.js
+products.js
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+App.js
+index.js
+index.css
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+────────────────────────────────────────
+【動作環境】
 
-### `npm run eject`
+・Node.js：v18 以上 推奨
+・npm：v9 以上
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+────────────────────────────────────────
+【セットアップ手順】
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+依存関係のインストール
+npm install
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+開発サーバ起動
+npm start
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+ブラウザでアクセス
+http://localhost:3000
 
-## Learn More
+本番ビルド
+npm run build
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+────────────────────────────────────────
+【自動デプロイ】
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+GitHub の main ブランチへ push すると
+Vercel へ自動デプロイされます。
 
-### Code Splitting
+公開 URL：
+https://my-site-teal-chi.vercel.app/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+────────────────────────────────────────
+【カスタマイズ方法（データ差し替え）】
 
-### Analyzing the Bundle Size
+以下のファイルを編集することで表示内容を変更できます。
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+例：ニュース一覧
+src/data/news.js（または news.json）
 
-### Making a Progressive Web App
+[
+{
+"id": 1,
+"date": "2026-01-05",
+"title": "決算説明資料を掲載しました",
+"url": "/documents/sample.pdf"
+}
+]
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+────────────────────────────────────────
+【よくあるエラー・注意点】
 
-### Advanced Configuration
+・react-scripts: command not found
+　→ npm install が未実行です。再度実行してください。
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+・起動時にエラーが出る
+　→ Node.js のバージョンを確認してください。（v18以上推奨）
 
-### Deployment
+・ポート3000が使用中
+　→ 他のプロセスを停止するか、別ポートで起動してください。
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+────────────────────────────────────────
+【Next.js 版への発展予定】
 
-### `npm run build` fails to minify
+・src/pages/ を app/ ディレクトリへ移行
+・データ配置を /public/data/ または /src/data/ に統一
+・Vercel デプロイ前提の構成へ変更予定
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+────────────────────────────────────────
